@@ -10,16 +10,6 @@ const { glob } = pkg;
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  worker: {
-    rollupOptions: {
-      external: ["@codex-storage/sdk-js", "@tanstack/react-query"],
-      output: {
-        globals: {
-          "@codex-storage/sdk-js": "codex-sdk-js",
-        },
-      },
-    },
-  },
   plugins: [
     react(),
     libInjectCss(),
