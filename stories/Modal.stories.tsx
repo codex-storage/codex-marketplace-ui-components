@@ -73,3 +73,25 @@ const ActionTemplate = (props: Props) => {
 };
 
 export const Action = ActionTemplate.bind({});
+
+const NoButtonTemplate = (props: Props) => {
+  const [open, setOpen] = useState(false);
+
+  const onOpen = () => setOpen(true);
+
+  const onClose = () => {
+    props.onClose();
+    setOpen(false);
+  };
+
+  return (
+    <div style={{ padding: "6rem" }}>
+      <button onClick={onOpen}>Make Modal</button>
+      <Modal onClose={onClose} open={open} displayCloseButton={false}>
+        <p>Hello world</p>
+      </Modal>
+    </div>
+  );
+};
+
+export const NoButton = NoButtonTemplate.bind({});

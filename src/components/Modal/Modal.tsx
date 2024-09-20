@@ -19,13 +19,14 @@ type Props = {
   displayCloseButton?: boolean;
 
   /**
+   * If true, the action button will be disabled.
+   * Default: false
+   */
+  displayActionButton?: boolean;
+
+  /**
    * Event triggered whenever the action button is clicked.
    * The action button should be considered the "primary" action.
-   * If this event is provided, the action button will be displayed;
-   * otherwise, it will be hidden, even if the label and disabled
-   * attributes are defined.
-   * Having a primary action without an action handler does not make
-   * sense, as it would result in an unusable button.
    */
   onAction?: () => void;
 
@@ -60,6 +61,7 @@ export function Modal({
   disableActionButton,
   disableCloseButton,
   displayCloseButton = true,
+  displayActionButton = false,
   labelActionButton = "Action",
   labelCloseButton = "Close",
   children,
@@ -87,7 +89,7 @@ export function Modal({
             />
           )}
 
-          {onAction && (
+          {displayActionButton && (
             <Button
               label={labelActionButton}
               onClick={onAction}
