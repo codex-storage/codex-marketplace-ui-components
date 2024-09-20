@@ -1,3 +1,4 @@
+import { SimpleText } from "../SimpleText/SimpleText";
 import { PrettyBytes } from "../utils/bytes";
 import "./spaceAllocation.css";
 
@@ -26,13 +27,15 @@ export function SpaceAllocation({ data }: Props) {
       <div className="nodeSpaceAllocation-legend">
         {data.map((d, index) => (
           <div key={d.title} className="nodeSpaceAllocation-legendRow">
-            <div className="nodeSpaceAllocation-legendLeft">
-              <div
-                className={`nodeSpaceAllocation-legendItem nodeSpaceAllocation-quota nodeSpaceAllocation-quota-${index}`}
-              ></div>
-              <span>{d.title}</span>
+            <div
+              className={`nodeSpaceAllocation-legendItem nodeSpaceAllocation-quota nodeSpaceAllocation-quota-${index}`}
+            ></div>
+            <div className="nodeSpaceAllocation-legendItem-text">
+              <small>{d.title}</small>
+              <SimpleText variant="light" size="small">
+                {PrettyBytes(d.size)}
+              </SimpleText>
             </div>
-            <small>{PrettyBytes(d.size)}</small>
           </div>
         ))}
       </div>
