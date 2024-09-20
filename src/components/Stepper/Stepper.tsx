@@ -47,6 +47,16 @@ type Props = {
   onNextStep: (step: number) => void | Promise<void>;
 
   className?: string;
+
+  /**
+   * Default: Back
+   */
+  backLabel?: string;
+
+  /**
+   * Default: Next
+   */
+  nextLabel?: string;
 };
 
 type Step = {
@@ -62,6 +72,8 @@ export function Stepper({
   style,
   dispatch,
   className,
+  backLabel = "Back",
+  nextLabel = "Next",
   duration = 500,
   onNextStep,
 }: Props) {
@@ -112,13 +124,13 @@ export function Stepper({
 
       <div className="stepper-buttons">
         <Button
-          label={state.step ? "Back" : "Close"}
+          label={backLabel}
           variant="outline"
           onClick={() => onChangeStep(state.step - 1)}
           disabled={!state.isBackEnable}
         />
         <Button
-          label={label}
+          label={nextLabel}
           onClick={() => onChangeStep(state.step + 1)}
           disabled={!state.isNextEnable}
         />
