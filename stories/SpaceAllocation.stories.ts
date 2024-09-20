@@ -19,17 +19,14 @@ export const Default: Story = {
     data: [
       {
         title: "Maximum storage space used by the node",
-        percent: 60,
         size: 10000000,
       },
       {
         title: "Amount of storage space currently in use",
-        percent: 20,
         size: 10000000 * 0.2,
       },
       {
         title: "Amount of storage space reserved",
-        percent: 20,
         size: 10000000 * 0.2,
       },
     ],

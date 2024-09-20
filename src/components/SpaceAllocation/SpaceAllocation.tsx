@@ -4,26 +4,28 @@ import "./spaceAllocation.css";
 type Props = {
   data: {
     title: string;
-    percent: number;
     size: number;
   }[];
 };
 
 export function SpaceAllocation({ data }: Props) {
+  const total = data.reduce((acc, val) => acc + val.size, 0);
+
   return (
     <>
       <div className="nodeSpaceAllocation-bar">
         {data.map((d, index) => (
           <span
+            key={d.title}
             className={`nodeSpaceAllocation-barItem nodeSpaceAllocation-barQuota nodeSpaceAllocation-quota-${index}`}
-            style={{ width: d.percent + "%" }}
+            style={{ width: (d.size / total) * 100 + "%" }}
           ></span>
         ))}
       </div>
 
       <div className="nodeSpaceAllocation-legend">
         {data.map((d, index) => (
-          <div className="nodeSpaceAllocation-legendRow">
+          <div key={d.title} className="nodeSpaceAllocation-legendRow">
             <div className="nodeSpaceAllocation-legendLeft">
               <div
                 className={`nodeSpaceAllocation-legendItem nodeSpaceAllocation-quota nodeSpaceAllocation-quota-${index}`}

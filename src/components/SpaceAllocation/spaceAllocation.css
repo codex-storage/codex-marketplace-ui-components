@@ -22,15 +22,15 @@
 }
 
 .nodeSpaceAllocation-quota-0 {
-  background-color: var(--codex-color);
-}
-
-.nodeSpaceAllocation-quota-1 {
   background-color: var(--codex-color-primary);
 }
 
-.nodeSpaceAllocation-quota-2 {
+.nodeSpaceAllocation-quota-1 {
   background-color: #f9fa93;
+}
+
+.nodeSpaceAllocation-quota-2 {
+  background-color: var(--codex-color);
 }
 
 .nodeSpaceAllocation-legend {
