@@ -28,7 +28,7 @@ type Props = {
    * If the mode is "auto", the component will check the invalid state
    * on change and add an invalid state if it is invalid.
    */
-  mode?: "auto";
+  mode?: "auto" | "manual";
 
   isInvalid?: boolean;
 
