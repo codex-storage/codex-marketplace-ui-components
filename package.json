@@ -38,7 +38,7 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@codex-storage/sdk-js": "^0.0.15",
+    "@codex-storage/sdk-js": "https://github.com/codex-storage/codex-js#feat/support-basic-auth",
     "@storybook/addon-essentials": "^8.2.9",
     "@storybook/addon-interactions": "^8.2.9",
     "@storybook/blocks": "^8.2.9",
