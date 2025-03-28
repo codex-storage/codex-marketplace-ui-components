@@ -11,6 +11,7 @@ import SuccessCircleIcon from "../../assets/icons/success-circle.svg?react";
 import WarningCircleIcon from "../../assets/icons/warning-circle.svg?react";
 import CloseIcon from "../../assets/icons/close.svg?react";
 import StopIcon from "../../assets/icons/stop.svg?react";
+import { BrowserUploadStategy } from "@codex-storage/sdk-js/browser";
 
 type UploadFileProps = {
   file: File;
@@ -149,10 +150,11 @@ export function UploadFile({
   });
 
   const upload = useCallback(async () => {
-    const { abort: a, result } = codexData.upload(file, onProgress, {
+    const strategy = new BrowserUploadStategy(file, onProgress, {
       filename: file.name,
       mimetype: file.type,
     });
+    const { abort: a, result } = codexData.upload(strategy);
 
     abort.current = a;
 

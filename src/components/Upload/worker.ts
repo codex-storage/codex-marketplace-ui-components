@@ -1,4 +1,5 @@
 import { Codex } from "@codex-storage/sdk-js";
+import { BrowserUploadStategy } from "@codex-storage/sdk-js/browser";
 
 const codex = new Codex(import.meta.env.VITE_CODEX_API_URL);
 let abort: () => void;
@@ -22,7 +23,8 @@ self.addEventListener("message", function (e) {
     });
   };
 
-  const res = codex.data.upload(rest.file, onProgress);
+  const strategy = new BrowserUploadStategy(rest.file, onProgress);
+  const res = codex.data.upload(strategy);
 
   abort = res.abort;
 
