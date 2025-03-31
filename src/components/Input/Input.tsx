@@ -3,6 +3,7 @@ import {
   ComponentType,
   forwardRef,
   InputHTMLAttributes,
+  useEffect,
   useState,
 } from "react";
 import { attributes } from "../utils/attributes";
@@ -63,6 +64,12 @@ export const Input = forwardRef<HTMLInputElement, Props>(
     ref
   ) => {
     const [invalid, setInvalid] = useState(isInvalid);
+
+    useEffect(() => {
+      if (mode === "manual") {
+        setInvalid(isInvalid);
+      }
+    }, [mode, isInvalid]);
 
     const onInternalChange = (e: ChangeEvent<HTMLInputElement>) => {
       if (mode === "auto") {
